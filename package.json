@@ -1,0 +1,24 @@
+{
+  "name": "farcaster-dao",
+  "version": "1.0.0",
+  "main": "dist/main.js",
+  "scripts": {
+    "start": "tsc && node dist/main.js",
+    "lint": "npx eslint --fix src/**/*.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@neynar/nodejs-sdk": "1.41.2",
+    "dotenv": "16.4.5"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.8.0",
+    "eslint": "9.8.0",
+    "globals": "15.9.0",
+    "typescript": "5.5.4",
+    "typescript-eslint": "8.0.1"
+  }
+}
