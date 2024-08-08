@@ -1,13 +1,15 @@
 import { FrameRequest, getFrameMessage, getFrameHtmlResponse } from "@coinbase/onchainkit/frame"
 import { NextRequest, NextResponse } from "next/server"
-import { envConfig, envPublicConfig } from "../../config"
+import { envConfig, envPublicConfig } from "../../../config"
 
 async function getResponse(req: NextRequest): Promise<NextResponse> {
     let accountAddress: string | undefined = ""
     let text: string | undefined = ""
 
+    console.log(envConfig().neynarApiKey)
+    
     const body: FrameRequest = await req.json()
-    const { isValid, message } = await getFrameMessage(body, { neynarApiKey: envConfig().neynarApiKey })
+    const { isValid, message } = await getFrameMessage(body, { neynarApiKey: envConfig().neynarApiKey, allowFramegear: true })
 
     if (isValid) {
         accountAddress = message.interactor.verified_accounts[0]
@@ -30,12 +32,13 @@ async function getResponse(req: NextRequest): Promise<NextResponse> {
             buttons: [
                 {
                     label: `🌲 ${text} 🌲`,
+                    action: "post", 
                 },
             ],
             image: {
                 src: `${envPublicConfig().url}/park-1.png`,
             },
-            postUrl: `${envPublicConfig().url}/api/frame`,
+            postUrl: `${envPublicConfig().url}/api/frame2`,
         }),
     )
 }

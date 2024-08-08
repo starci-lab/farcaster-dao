@@ -6,9 +6,7 @@ import { envPublicConfig } from "@/config"
 const frameMetadata = getFrameMetadata({
     buttons: [
         {
-            action: "post",
-            label: "Send Base Sepolia",
-            target: `${envPublicConfig().url}/api/frame`,
+            label: "Story time 222!",
         },
         {
             action: "link",
@@ -18,7 +16,6 @@ const frameMetadata = getFrameMetadata({
         {
             label: "Redirect to pictures",
             action: "post_redirect",
-            target: `${envPublicConfig().url}/api/frame`,
         },
     ],
     image: {
@@ -28,7 +25,7 @@ const frameMetadata = getFrameMetadata({
     input: {
         text: "Tell me a boat story",
     },
-    postUrl: `${envPublicConfig().url}/api/frame`,
+    postUrl: `${envPublicConfig().url}/api/frame2`,
 })
 
 export const metadata: Metadata = {
